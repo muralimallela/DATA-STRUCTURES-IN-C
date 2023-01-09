@@ -3,45 +3,33 @@
 struct node{
     int data;
     struct node *next;
-}*top,*head;
-struct node *p;
-void allocate(){
+}*top,*p;
+void push(){
     p=(struct node*)malloc(sizeof(struct node));
     printf("\nEnter data value: ");
     scanf("%d",&p->data);
     p->next=NULL;
-}
-void push(){
-    allocate();
-    if(head==NULL)
-        head=top=p;
+    if(top==NULL)
+        top=p;
     else{
-        top->next=p;
+        p->next=top;
         top=p;
     }
+    printf("\n%d is pushed.\n");
 }
 void pop(){
-    if(head==NULL)
+    if(top==NULL)
         printf("\nStact is empty!\n");
     else{
-        if(head==top){
-            printf("\n%d is poped.\n",top->data);
-            head=top=NULL;
-        }
-        else{
-            p=head;
-            while(p->next!=top){
-                p=p->next;
-            }
-            printf("\n%d is poped.\n",top->data);
-            p->next=NULL;
-            top=p;
-        }
+        p=top;
+        printf("\n%d is poped.\n",top->data);
+        top=top->next;
+        free(p);
     }
 }
 void Display(){
-    p=head;
-    if(head==NULL)
+    p=top;
+    if(top==NULL)
         printf("\nStack  is empty.\n");
     else{
         printf("\nStack elements are: ");
@@ -53,16 +41,16 @@ void Display(){
     }
 }
 void is_empty(){
-    if(head==NULL)
+    if(top==NULL)
         printf("\nStack is Empty!\n");
     else
         printf("\nStack is not empty.\n");
 }
 void peek(){
-    if(head==NULL)
+    if(top==NULL)
         printf("\nStack is Empty!\n");
     else
-        printf("\nPeek element is %d\n",top->data);
+        printf("\nPeek element is : %d\n",top->data);
 }
 void main(){
     int op;
