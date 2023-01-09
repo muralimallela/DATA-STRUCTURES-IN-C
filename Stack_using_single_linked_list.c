@@ -15,7 +15,7 @@ void push(){
         p->next=top;
         top=p;
     }
-    printf("\n%d is pushed.\n");
+    printf("\n%d is pushed.\n",top->data);
 }
 void pop(){
     if(top==NULL)
