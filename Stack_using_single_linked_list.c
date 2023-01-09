@@ -1,11 +1,11 @@
 #include<stdio.h>
 #include<stdlib.h>
-struct node{
+struct stack{
     int data;
-    struct node *next;
+    struct stack *next;
 }*top,*p;
 void push(){
-    p=(struct node*)malloc(sizeof(struct node));
+    p=(struct stack*)malloc(sizeof(struct stack));
     printf("\nEnter data value: ");
     scanf("%d",&p->data);
     p->next=NULL;
