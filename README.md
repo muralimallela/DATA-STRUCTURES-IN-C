@@ -32,4 +32,4 @@ To use any of the data structures in your C project, follow these steps:
 1. Clone this repository to your local machine.
 
 ```bash
-git clone https://github.com/yourusername/data-structures-using-c.git
+git clone https://github.com/muralimallela/data-structures-in-c.git
